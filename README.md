@@ -17,6 +17,7 @@ For the detail deploy instruction, check the kubespray's [readme](https://github
 |Multus         |v3.4           |
 |Flannel        |v0.11.0        |
 |Flannel-CNI    |v0.3.0         |
+|Calico         |v3.7.3         |
 |SRIOV-CNI      |v2.2           |
 |SRIOV-Device Plugin |v3.1      |
 |Prometheus Operator     |v0.37.0        |
@@ -24,6 +25,7 @@ For the detail deploy instruction, check the kubespray's [readme](https://github
 |Elastic Search |v6.3.2         |
 |Kibana         |v6.3.2         |
 |fluentd        |v2.2.0         |
+|kubevirt       |v0.30.0        |
 
 ## Deploy Node Requirement
 
@@ -130,6 +132,10 @@ ssh-copy-id <node1_ip>
    su -
    ./x-k8s install
    ```
+
+### 3. KubeVirt Usage
+
+    Go check [KubeVirt Usage](x-k8s/docs/kubevirt.md) for more information. 
 
 ## CLI  
 
