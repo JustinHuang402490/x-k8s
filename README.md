@@ -135,7 +135,7 @@ ssh-copy-id <node1_ip>
 
 ### 3. KubeVirt Usage
 
-    Go check [KubeVirt Usage](x-k8s/docs/kubevirt.md) for more information. 
+    Go check [KubeVirt Usage](docs/kubevirt.md) for more information. 
 
 ## CLI  
 

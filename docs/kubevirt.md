@@ -1,4 +1,3 @@
-###### tags: `x-k8s kubevirt integration`
 # Run Windows VM from an existing image
 - Create two persistent volumes (PV) for CDI uploading
     `kubectl create -f pv-import-vm.yml`
