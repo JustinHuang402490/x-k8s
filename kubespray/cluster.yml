@@ -139,3 +139,8 @@
   any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
   roles:
     - { role: install_prometheus_operator, when: "monitor_enabled | default(false)" }
+
+- hosts: kube-master
+  any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
+  roles:
+    - { role: install_kubevirt}

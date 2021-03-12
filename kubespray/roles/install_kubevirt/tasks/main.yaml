@@ -1,0 +1,44 @@
+#
+# Install kubevirt for win10 VM integration
+#
+
+- name: install KVM
+  apt:
+    name:
+      - qemu-kvm=1:2.11+dfsg-1ubuntu7.36
+      - libvirt-bin=4.0.0-1ubuntu8.17
+      - virt-top=1.0.8-1
+      - libguestfs-tools=1:1.36.13-1ubuntu3.3
+      - virtinst=1:1.5.1-0ubuntu1.2
+      - bridge-utils=1.5-15ubuntu1
+
+- name: Install kubevirt operator
+  command: kubectl apply -f "https://github.com/kubevirt/kubevirt/releases/download/{{ kubevirt_version }}/kubevirt-operator.yaml"
+
+- name: Wait 5 sec
+  pause:
+    seconds: 5
+
+- name: Install kubevirt cr
+  command: kubectl apply -f "https://github.com/kubevirt/kubevirt/releases/download/{{ kubevirt_version }}/kubevirt-cr.yaml"
+
+- name: Install virtctl
+  get_url:
+    url: https://github.com/kubevirt/kubevirt/releases/download/{{ kubevirt_version }}/virtctl-{{ kubevirt_version }}-linux-amd64
+    dest: /root/virtctl
+
+- name: Change file permissions
+  file:
+    path: /root/virtctl
+    state: touch
+    mode: "o+rx"
+
+- name: Install CDI operator
+  command: kubectl apply -f "https://github.com/kubevirt/containerized-data-importer/releases/download/{{ cdi_version }}/cdi-operator.yaml"
+
+- name: Wait 5 sec
+  pause:
+    seconds: 5
+
+- name: Install CDI cr
+  command: kubectl apply -f "https://github.com/kubevirt/containerized-data-importer/releases/download/{{ cdi_version }}/cdi-cr.yaml"

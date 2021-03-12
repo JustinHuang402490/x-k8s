@@ -1,0 +1,4 @@
+# Main and default variables for kubevirt integration
+
+kubevirt_version: "v0.30.0"
+cdi_version: "v1.18.0"
